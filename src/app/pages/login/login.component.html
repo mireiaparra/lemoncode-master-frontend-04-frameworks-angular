@@ -1,1 +1,21 @@
-<p>login works!</p>
+<form class="form" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="username">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div *ngIf="passwordControl.touched && passwordControl.invalid">
+        <div *ngIf="passwordControl.errors?.['required']">Este campo es obligatorio</div>
+        <div *ngIf="passwordControl.errors?.['minlength']">
+       La contraseña debe tener {{ passwordControl.errors?.['minlength'].requiredLength }} caracteres mínimo.
+       </div>
+       </div>
+       <button [disabled]="form.invalid" (click)="login()">Guardar</button>
+</form>

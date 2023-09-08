@@ -16,7 +16,11 @@ import { HeaderPrivateComponent } from './layout/header-private/header-private.c
 import { HeaderPublicComponent } from './layout/header-public/header-public.component';
 import { MenuPrivateComponent } from './layout/menu-private/menu-private.component';
 import { MenuPublicComponent } from './layout/menu-public/menu-public.component';
-import { MatButtonModule } from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -40,6 +44,10 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
