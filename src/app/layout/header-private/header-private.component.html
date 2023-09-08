@@ -2,4 +2,6 @@
     <img src="assets/images/logo.png" class="header__img" alt="Logo" />
     <h1>BooksWeb</h1>
     <app-menu-private></app-menu-private>
+    <h2>{{loginSvc.getUsername()}}</h2>
+    <button mat-raised-button (click)="loginSvc.logout()">Salir</button>
 </header>

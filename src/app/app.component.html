@@ -1,4 +1,6 @@
-<app-header-private></app-header-private>
-<app-header-public></app-header-public>
+<app-header-private *ngIf="loginSvc.isLogged(); else noLogged"></app-header-private>
+<ng-template #noLogged>
+    <app-header-public ></app-header-public>
+</ng-template>
 
 <router-outlet></router-outlet>

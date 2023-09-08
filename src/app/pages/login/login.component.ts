@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/auth/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent {
   usernameControl!: FormControl;
   passwordControl!: FormControl;
 
-  constructor(  private _fb: FormBuilder,) { 
+  constructor(  private _fb: FormBuilder, private _loginSvc: LoginService, private router: Router) { 
  this.createForm()
   }
 
@@ -27,6 +29,8 @@ export class LoginComponent {
   }
 
   public login(){
-
+    if(this._loginSvc.login(this.form.value)) {
+      this.router.navigate(['/dashboard']);
+    };
   }
 }

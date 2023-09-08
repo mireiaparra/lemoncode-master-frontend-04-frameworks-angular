@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../auth/login.service';
 
 @Component({
   selector: 'app-header-private',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-private.component.css']
 })
 export class HeaderPrivateComponent {
+constructor(public loginSvc: LoginService){
 
+}
 }
